@@ -1,8 +1,6 @@
-# DmarcParser
+# DMARC Parser
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/dmarc_parser`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Parses DMARC XML reports for future processing.
 
 ## Installation
 
@@ -22,7 +20,27 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```
+    report = DmarcParser::Report.new(xml_string)
+```
+
+Getting metadata:
+
+```
+  report.metadata
+```
+
+Getting DMARC policy information:
+
+```
+  report.policy
+```
+
+Getting collection of report records:
+
+```
+  report.records
+```
 
 ## Development
 
