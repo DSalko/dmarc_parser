@@ -21,7 +21,7 @@ Or install it yourself as:
 ## Usage
 
 ```
-    report = DmarcParser::Report.new(xml_string)
+  report = DmarcParser::Report.new(xml_string)
 ```
 
 Getting metadata:
@@ -50,7 +50,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/dmarc_parser.
+Bug reports and pull requests are welcome on GitHub at https://github.com/DSalko/dmarc_parser.
 
 ## License
 
