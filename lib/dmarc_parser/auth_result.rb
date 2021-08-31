@@ -5,7 +5,7 @@ require_relative 'xml_helper'
 module DmarcParser
   class AuthResult
     include XmlHelper
-    ATTRIBUTES = [:type, :domain, :result, :selector]
+    ATTRIBUTES = [:type, :domain, :result, :selector, :scope]
 
     ATTRIBUTES.each do |attr|
       attr_accessor attr
@@ -17,6 +17,7 @@ module DmarcParser
       self.domain = get_text('domain')
       self.result = get_text('result')
       self.selector = get_text('selector')
+      self.scope = get_text('scope')
     end
   end
 end

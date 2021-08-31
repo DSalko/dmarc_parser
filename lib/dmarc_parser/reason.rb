@@ -1,11 +1,12 @@
 # frozen_string_literal: true
+
 require 'nokogiri'
 require_relative 'xml_helper'
 
 module DmarcParser
-  class Policy
+  class Reason
     include XmlHelper
-    ATTRIBUTES = [:domain, :adkim, :aspf, :p, :sp, :pct, :fo]
+    ATTRIBUTES = [:type, :comment]
 
     ATTRIBUTES.each do |attr|
       attr_accessor attr
@@ -13,10 +14,8 @@ module DmarcParser
 
     def initialize(node)
       @node = node
-      ATTRIBUTES.each do |attr|
-        self.send("#{attr}=", get_text("feedback/policy_published/#{attr}"))
-      end
-      self.pct = self.pct ? self.pct.to_i : nil
+      self.type = get_text('type')
+      self.comment = get_text('comment')
     end
   end
 end

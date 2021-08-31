@@ -1,13 +1,20 @@
 require 'nokogiri'
+require "bigdecimal/util"
 require_relative 'metadata'
 require_relative 'policy'
 require_relative 'record'
 
 module DmarcParser
   class Report
+    include XmlHelper
+
     def initialize(xml)
       @xml = xml
       @node = Nokogiri::XML(xml)
+    end
+
+    def version
+      @version ||= BigDecimal(get_text("feedback/version")) if get_text("feedback/version")
     end
 
     def metadata
@@ -15,7 +22,7 @@ module DmarcParser
     end
 
     def policy
-      @policy ||=DmarcParser::Policy.new(@node)
+      @policy ||= DmarcParser::Policy.new(@node)
     end
 
     def records
