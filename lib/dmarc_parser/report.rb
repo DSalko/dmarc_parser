@@ -11,6 +11,7 @@ module DmarcParser
     def initialize(xml)
       @xml = xml
       @node = Nokogiri::XML(xml)
+      @node.remove_namespaces!
     end
 
     def version

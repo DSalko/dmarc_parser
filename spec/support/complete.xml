@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<feedback>
+<feedback xmlns="urn:ietf:params:xml:ns:dmarc-2.0">
   <version>0.1</version>
   <report_metadata>
     <org_name>google.com</org_name>
